@@ -1,36 +1,108 @@
 # SecureTask
 
-SecureTask es una mini aplicación web desarrollada con **Laravel 12**, **React**, **Inertia.js** y **Ziggy**.  
-El proyecto implementa autenticación de usuarios y servirá como base para la gestión de tareas.
+SecureTask is a secure task management system built with Laravel, React and Inertia.js.  
+It includes role-based access control, a modern SaaS-style interface and task management features.
 
-## Tecnologías utilizadas
+## Tech Stack
 
-- Laravel 12
-- React
-- Inertia.js
-- Ziggy
+- Laravel
+- React (Inertia.js)
+- Starter-kit de Laravel 12
+- Docker (Laravel Sail)
 - MySQL
-- Docker
+- Spatie Laravel Permission
 - Vite
+- Javascript
+- CSS
 
-## Funcionalidades actuales
+## Features
 
-- Registro de usuarios
-- Inicio de sesión
-- Autenticación con Laravel Breeze
-- Integración Laravel + React con Inertia
-- Rutas de Laravel disponibles en React mediante Ziggy
+- User authentication
+- Role-based access control (Admin, Editor, User)
+- Task CRUD system
+- Dashboard with statistics
+- User management
+- Role assignment by administrator
+- Modern SaaS-style interface
+- Secure access control
 
-## Próximas funcionalidades
+## Roles
 
-- CRUD de tareas
-- Dashboard con listado de tareas
-- Edición y eliminación de tareas
-- Control de acceso por usuario
+The system implements three user roles:
+
+### Administrator
+- Full CRUD for tasks
+- Can view user list
+- Can change user roles
+
+### Editor
+- Full CRUD for tasks
+
+### User
+- Can only view tasks
+
+## Screenshots
+
+### Landing Page
+![Landing](public/images/screenshots/landing.png)
+
+### Dashboard
+![Dashboard](public/images/screenshots/dashboard.png)
+
+### Task Manager
+![Tasks](public/images/screenshots/tasks.png)
+
+### Edit Task
+![Edit](public/images/screenshots/edit-task.png)
+
+### User Management
+![Users](public/images/screenshots/users.png)
+
+### Login
+![Login](public/images/screenshots/login.png)
+
+### User Role Management
+![UserRoleManagement](public/images/screenshots/user-rol-selector.png) 
+
 
 ## Instalación
 
 Clonar el repositorio:
 
-```bash
 git clone https://github.com/CAROLINAMEJIA1106/securetask.git
+
+Run Docker containers:
+docker compose up -d
+
+Install dependencies:
+docker compose exec laravel.test composer install
+docker compose exec laravel.test npm install
+
+Run migrations:
+docker compose exec laravel.test php artisan migrate
+
+Start frontend:
+docker compose exec laravel.test npm run dev
+
+## Test Users
+
+Administrador
+admin@test.com
+12345678
+
+Editor
+editor@test.com
+password
+
+Usuario
+usuario@test.com
+password
+
+Ana Suarez
+ana@prueba.com
+password
+
+## Assets
+
+Background image: Image by Freepik  
+https://www.freepik.com
