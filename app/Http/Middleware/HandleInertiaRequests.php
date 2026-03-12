@@ -27,12 +27,20 @@ class HandleInertiaRequests extends Middleware
      *
      * @return array<string, mixed>
      */
+    //Enviamos la información del usuario autenticado a las vistas de Inertia
     public function share(Request $request): array
     {
         return [
             ...parent::share($request),
             'auth' => [
-                'user' => $request->user(),
+                'user' => $request->user()
+                    ? [
+                        'id' => $request->user()->id,
+                        'name' => $request->user()->name,
+                        'email' => $request->user()->email,
+                        'roles' => $request->user()->getRoleNames(),
+                    ]
+                    : null,
             ],
         ];
     }
